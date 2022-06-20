@@ -9,7 +9,7 @@ export const Container = styled.div`
     align-items:center;
     gap:20px;
     padding:20px;
-    background-color:rgba(255,255,255,0.35);
+    background-color:rgba(255,255,255,0.45  );
     backdrop-filter:blur(20%);
     border-radius:10px;
 `;

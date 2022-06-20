@@ -4,13 +4,14 @@ import Home from "../Home";
 import Login from "../Login";
 import Travels from "../Travels";
 import TravelsAdm from "../TravelsAdm";
+import NewTravel from "../NewTravel";
 
 
 
 const Layout=()=>{
   return (
    <Container>
-    <TravelsAdm/>
+    <NewTravel/>
    </Container>
   );
 }

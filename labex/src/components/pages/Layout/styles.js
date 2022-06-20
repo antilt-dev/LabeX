@@ -5,6 +5,8 @@ export const Container = styled.div`
     min-height:100vh;
     background-color:rgba(0,0,0,.5);
     display:flex;
+    flex-direction:column;
+    align-items:center;
     justify-content:center;
     padding:20px;
 
