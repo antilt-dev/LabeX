@@ -6,7 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PasswordIcon from '@mui/icons-material/Password';
 
 
-const LoginArea=()=>{
+const LoginArea=(props)=>{
   const onClickSubmit =()=>{console.log('submit')}
   return (
    <Container>
@@ -21,7 +21,7 @@ const LoginArea=()=>{
       icon={<PasswordIcon/>}
       />
       <ButtonPrimary
-      onClick={onClickSubmit}
+      onClick={props.onClick}
       children="LOGIN"
       />
    </Container>

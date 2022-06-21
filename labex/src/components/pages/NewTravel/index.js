@@ -6,8 +6,8 @@ import {Container} from './styles'
 const NewTravel=()=>{
   return (
    <Container>
-    <HeaderNewTravel/>
-    <FormCreateTravel/>
+      <HeaderNewTravel/>
+      <FormCreateTravel/>
    </Container>
   );
 }

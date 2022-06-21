@@ -1,61 +1,59 @@
 import React from "react";
 import {Container} from './styles';
-import { Select,
-        FormControl,
-        InputLabel,
-        FilledInput,
-        MenuItem,
-        TextField,
-        Stack,
-     } from "@mui/material";
-    
+import { Select, FormControl, FilledInput, MenuItem, TextField, InputLabel} from "@mui/material";
+import { useState } from "react";
+import {planets} from "../../constants/planets";
+
 
 const FormCreateTravel=()=>{
+
+    const [date,setDate] = useState('2022-12-21')
+    const [planet,setPlanet] = useState('')
+
+    const onChangeDate = (e)=>{
+       setDate(e.target.value)
+    }
+    const onChangePlanet = (e)=>{
+       setPlanet(e.target.value)
+    }
+    const planetsRender = planets.map((planet)=><MenuItem key={planet.value} value={planet.value}>{planet.name}</MenuItem>)
   return (
    <Container>
         <FormControl fullWidth  variant="filled">
-            <InputLabel   htmlFor="component-filled">Name</InputLabel>
-            <FilledInput  id="component-filled"  />
-        </FormControl>
-        <FormControl fullWidth variant="filled">
-            <InputLabel id="demo-simple-select-filled-label">Planet</InputLabel>
-            <Select
-                labelId="demo-simple-select-filled-label"
-                id="demo-simple-select-filled-label"
-                label="Planet"
-            >
-                <MenuItem value={""}>None</MenuItem>
-                <MenuItem value={1}>Mercury</MenuItem>
-                <MenuItem value={2}>Venus</MenuItem>
-                <MenuItem value={3}>Earth</MenuItem>
-                <MenuItem value={4}>Mars</MenuItem>
-                <MenuItem value={5}>Jupiter</MenuItem>
-                <MenuItem value={6}>Saturn</MenuItem>
-                <MenuItem value={7}>Uranus</MenuItem>
-                <MenuItem value={8}>Neptune</MenuItem>
-                <MenuItem value={9}>Pluto</MenuItem> 
+            <InputLabel>Name</InputLabel>
+            <FilledInput/>
+        </FormControl>  
+        <FormControl fullWidth  variant="filled">
+            <InputLabel>Planet</InputLabel>
+            <Select  
+            defaultValue={0} 
+            onChange={(e)=>onChangePlanet(e)}
+            >{planetsRender}
             </Select>
         </FormControl>
+        <FormControl fullWidth  variant="filled">
         <TextField 
             variant="filled"
-            fullWidth
-            id="date"
             label="Departure"
             type="date"
             InputLabelProps={{shrink: true}}
+            value={date}
+            onChange={(e)=>onChangeDate(e)}  
         />
-        <TextField
-            id="filled-multiline-static"
-            label="Description"
-            multiline
-            rows={1}
-            placeholder="Description"
-            variant="filled"
-            fullWidth
-        />
-        
+        </FormControl>
+        <FormControl fullWidth  variant="filled">
+            <InputLabel>Description</InputLabel>
+            <FilledInput maxRows={2} placeholder="Description" multiline/>
+        </FormControl>
+        <FormControl fullWidth  variant="filled">
+            <InputLabel>Travel time (in days)</InputLabel>
+            <FilledInput placeholder="Travel time (in days)"/>
+        </FormControl>
+    
    </Container>
   );
 }
+
+
 
 export default FormCreateTravel;

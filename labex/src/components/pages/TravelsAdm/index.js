@@ -7,6 +7,7 @@ const TravelsAdm=()=>{
   return (
    <Container>
     <HeaderTravelsAdm/>
+    
    </Container>
   );
 }
