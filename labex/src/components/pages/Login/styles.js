@@ -13,7 +13,6 @@ export const Container = styled.div`
     justify-content:center;
     gap:20px;
     h1{
-        color:#1976d2;
-        font-family:"Roboto"
+        color:#1976d2 ;
     }
 `;  

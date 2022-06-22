@@ -4,22 +4,19 @@ import ButtonPrimary from "../../_atoms/ButtonPrimary";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 
-const HeaderNewTravel=()=>{
-    const onClickBack=()=>{console.log('back')}
-    const onClickCreateTravel=()=>{console.log('create travel')}
-
+const HeaderNewTravel=(props)=>{
 
   return (
    <Container>
-    <h1>Create Travel</h1>
+    <h1>Create New Travel</h1>
     <div>
         <ButtonPrimary
-        onClick={onClickBack}
+        onClick={props.onClickBack}
         startIcon={<ArrowBackIcon/>}
         children="Back"
         />
         <ButtonPrimary
-        onClick={onClickCreateTravel}
+        onClick={props.onClickNewTravel}
         startIcon={<AddBoxIcon/>}
         children="Add travel"
         />

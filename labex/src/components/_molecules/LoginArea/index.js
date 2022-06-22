@@ -1,29 +1,64 @@
 import React from "react";
 import ButtonPrimary from "../../_atoms/ButtonPrimary";
-import StandardInput from "../../_atoms/StandardInput";
-import {Container} from './styles';
+import {Container, Buttons} from './styles';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PasswordIcon from '@mui/icons-material/Password';
+import LoginIcon from '@mui/icons-material/Login';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { TextField,InputAdornment } from "@mui/material";
 
 
 const LoginArea=(props)=>{
-  const onClickSubmit =()=>{console.log('submit')}
+
   return (
    <Container>
-      <StandardInput 
-      placeholder="E-mail"
-      type="email"
-      icon={<AccountCircleIcon/>}
+      <TextField 
+        onChange={props.handleEmail}
+        value={props.valueEmail}
+        placeholder={props.placeholderEmail} 
+        error={props.error}
+        variant="outlined"
+        required
+        fullWidth
+        type="email"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+             <AccountCircleIcon/>
+            </InputAdornment>
+          ),
+        }}
       />
-      <StandardInput 
-      placeholder="Password"
-      type="password"
-      icon={<PasswordIcon/>}
+      <TextField 
+        onChange={props.handlePassword}
+        value={props.valuePassword}
+        placeholder={props.placeholderPassword} 
+        error={props.error}
+        variant="outlined"
+        required
+        fullWidth
+        type="password"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+            <PasswordIcon/>
+            </InputAdornment>
+          ),
+        }}
+      />
+      <Buttons>
+      <ButtonPrimary
+        onClick={props.onClickBack}
+        startIcon={<ArrowBackIcon/>}
+        children="Back"
       />
       <ButtonPrimary
-      onClick={props.onClick}
-      children="LOGIN"
+        children="LOGIN"
+        onClick={props.onClickLogin}
+        endIcon={<LoginIcon/>}
       />
+      </Buttons>
+
    </Container>
   );
 }

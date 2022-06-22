@@ -6,28 +6,24 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 
-const HeaderTravelsAdm=()=>{
-    const onClickBack=()=>{console.log('back')}
-    const onClickCreateTravel=()=>{console.log('create travel')}
-    const onClickLogout=()=>{console.log('logout')}
-
+const HeaderTravelsAdm=(props)=>{
 
   return (
    <Container>
     <h1>Control Painel</h1>
     <div>
         <ButtonPrimary
-        onClick={onClickBack}
+        onClick={props.onClickBack}
         startIcon={<ArrowBackIcon/>}
         children="Back"
         />
         <ButtonPrimary
-        onClick={onClickCreateTravel}
+        onClick={props.onClickNewTravel}
         startIcon={<AddBoxIcon/>}
         children="New travel"
         />
         <ButtonPrimary
-        onClick={onClickLogout}
+        onClick={props.onClickLogout}
         startIcon={<LogoutIcon/>}
         children="Logout"
         />

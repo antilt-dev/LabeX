@@ -10,3 +10,10 @@ export const Container = styled.div`
         width:100%;
     }
 `;
+
+export const Buttons=styled.div`
+    display:flex;
+    align-items:center;
+    gap:20%;
+`;
+    

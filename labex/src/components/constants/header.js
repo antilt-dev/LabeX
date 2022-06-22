@@ -1,5 +1,5 @@
-export const header = {
+export const headers = {
     headers:{
-        auth:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkhPcldMUTc5WGw4Z2g2WTV0UW9zIiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE2NTU1NjM4NTF9._pZFKd39UK5ZW_peKmPT1ZVMDw1_q-dnD6bZW3WaB9g"
+        auth:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFYNWN3endxYW1IMnZBZXlSWm9tIiwiZW1haWwiOiJnYWJyaWVsQGxhYmVudS5jb20uYnIiLCJpYXQiOjE2NTU5MjY0ODJ9.BbfHY7zAjtWsacCl_KiwF-gmsC_A7Fjw9AvcB7RcMoE"
     }
 }
