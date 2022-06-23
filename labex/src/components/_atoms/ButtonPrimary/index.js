@@ -11,6 +11,7 @@ const ButtonPrimary=(props)=>{
             color="primary"
             endIcon={props.endIcon}
             startIcon={props.startIcon}
+            type={props.type}
             >{props.children}</Button>
    </Container>
   );

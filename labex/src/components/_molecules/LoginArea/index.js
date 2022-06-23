@@ -12,7 +12,8 @@ const LoginArea=(props)=>{
 
   return (
    <Container>
-      <TextField 
+      <TextField
+        name="email" 
         onChange={props.handleEmail}
         value={props.valueEmail}
         placeholder={props.placeholderEmail} 
@@ -30,6 +31,7 @@ const LoginArea=(props)=>{
         }}
       />
       <TextField 
+        name="password"
         onChange={props.handlePassword}
         value={props.valuePassword}
         placeholder={props.placeholderPassword} 
@@ -47,16 +49,17 @@ const LoginArea=(props)=>{
         }}
       />
       <Buttons>
-      <ButtonPrimary
-        onClick={props.onClickBack}
-        startIcon={<ArrowBackIcon/>}
-        children="Back"
-      />
-      <ButtonPrimary
-        children="LOGIN"
-        onClick={props.onClickLogin}
-        endIcon={<LoginIcon/>}
-      />
+        <ButtonPrimary
+          onClick={props.onClickBack}
+          startIcon={<ArrowBackIcon/>}
+          children="Back"
+        />
+        <ButtonPrimary
+          children="LOGIN"
+          type="submit"
+          onClick={props.onClickLogin}
+          endIcon={<LoginIcon/>}
+        />
       </Buttons>
 
    </Container>

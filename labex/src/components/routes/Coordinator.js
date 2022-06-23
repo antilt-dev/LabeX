@@ -17,4 +17,4 @@ export const goNewTravel = (navigate)=>{
 }
 export const goHome = (navigate)=>{
     navigate("/")
-}
+} 

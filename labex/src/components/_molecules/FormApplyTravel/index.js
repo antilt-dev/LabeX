@@ -2,59 +2,100 @@ import React from "react";
 import {Container} from './styles';
 import { Select, FormControl, FilledInput, MenuItem, InputLabel} from "@mui/material";
 import {countries} from '../../constants/countries';
-import { useState } from "react";
+import useForm from "../../hooks/useForm";
+import ButtonPrimary from "../../_atoms/ButtonPrimary";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
-const FormApplyTravel=()=>{
 
-const [country,setCountry] = useState('')
+const FormApplyTravel=(props)=>{
 
-const onChangeCountry = (e)=>{
-    setCountry(e.target.value)
-}
 
 const countriesRender = countries.map((item)=><MenuItem key={item.label} value={item.label}>{item.label}</MenuItem>)
+const initialValue = {
+    travel:"",
+    name:"", 
+    age:"",
+    message:"",
+    profession:"",
+    country:"",
+}
+const {form,onChange,clearInputs} = useForm(initialValue)
 
   return (
    <Container>
     <FormControl fullWidth  variant="filled">
         <InputLabel>Travel</InputLabel>
-        <Select  
-        defaultValue="Select your Country" 
-        onChange={(e)=>onChangeCountry(e)}
-        >{countriesRender}
+        <Select required
+        name="travel"  
+        defaultValue={form.travel} 
+        value={form.travel}
+        onChange={onChange}
+        >
+        <MenuItem key={1} value={1}>{"teste"}</MenuItem>
+        <MenuItem key={2} value={2}>{"teste 2 "}</MenuItem>
         </Select>
     </FormControl>
 
     <FormControl fullWidth  variant="filled">
         <InputLabel>Name</InputLabel>
-        <FilledInput/>
+        <FilledInput required
+        name="name"
+        defaultValue={form.name} 
+        value={form.name}
+        onChange={onChange}
+        />
     </FormControl>  
 
     <FormControl fullWidth  variant="filled">
         <InputLabel>Age</InputLabel>
-        <FilledInput/>
+        <FilledInput required
+        name="age"
+        defaultValue={form.age} 
+        value={form.age}
+        onChange={onChange}
+        />
     </FormControl> 
 
     <FormControl fullWidth  variant="filled">
         <InputLabel>Message</InputLabel>
-        <FilledInput/>
+        <FilledInput required
+        name="message"
+        defaultValue={form.message} 
+        value={form.message}
+        onChange={onChange}
+        />
     </FormControl> 
 
     <FormControl fullWidth  variant="filled">
         <InputLabel>Profession</InputLabel>
-        <FilledInput/>
-    </FormControl> 
+        <FilledInput required
+        name="profession"
+        defaultValue={form.profession} 
+        value={form.profession}
+        onChange={onChange}
+        />
+    </FormControl>  
     
     <FormControl fullWidth  variant="filled">
         <InputLabel>Country</InputLabel>
-        <Select 
-        label="Planet" 
-        defaultValue="Select your Country" 
-        onChange={(e)=>onChangeCountry(e)}
+        <Select required
+        label="Country"
+        name="country"
+        defaultValue={form.country} 
+        value={form.country}
+        onChange={onChange}
         >{countriesRender}
         </Select>
     </FormControl>
-
+    <FormControl fullWidth >
+    <ButtonPrimary 
+        children="Apply"
+        onClick={props.onClickSendRequest}
+        endIcon={<AddBoxIcon/>}
+        type="submit"
+    />
+    </FormControl>
+   
    </Container>
   );
 }

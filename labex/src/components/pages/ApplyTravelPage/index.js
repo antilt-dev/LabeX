@@ -6,10 +6,10 @@ import FormApplyTravel from "../../_molecules/FormApplyTravel";
 const ApplyTravelPage=()=>{
   return (
    <Container>
-    <HeaderApplyTravel/>
+    <HeaderApplyTravel />
     <FormApplyTravel/>
    </Container>
   );
 }
 
-export default ApplyTravelPage;
+export default ApplyTravelPage; 

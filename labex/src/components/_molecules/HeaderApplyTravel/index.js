@@ -2,26 +2,25 @@ import React from "react";
 import {Container} from './styles';
 import ButtonPrimary from "../../_atoms/ButtonPrimary";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import AddBoxIcon from "@mui/icons-material/AddBox";
+import LoginIcon from '@mui/icons-material/Login';
 
-const HeaderApplyTravel=()=>{
+const HeaderApplyTravel=(props)=>{
 
-    const onClickBack=()=>{console.log('back')}
-    const onClickApplyTravel=()=>{console.log('create travel')}
 
   return (
    <Container>
     <h1>Apply to Travel</h1>
     <div>
         <ButtonPrimary
-        onClick={onClickBack}
+        onClick={props.onClickBack}
         startIcon={<ArrowBackIcon/>}
         children="Back"
         />
         <ButtonPrimary
-        onClick={onClickApplyTravel}
-        startIcon={<AddBoxIcon/>}
-        children="Apply"
+        children="LOGIN"
+        type="submit"
+        onClick={props.onClickLogin}
+        endIcon={<LoginIcon/>}
         />
     </div>
    </Container>

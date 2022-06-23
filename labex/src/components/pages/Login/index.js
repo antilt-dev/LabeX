@@ -5,44 +5,37 @@ import { goAdmTravels, goBack } from "../../routes/Coordinator";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { urlLogin } from "../../constants/urlsAPI";
+import useForm from "../../hooks/useForm"
 
 const Login=()=>{
   const navigate = useNavigate()
 
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
+  const {form,onChange,cleanInputs} = useForm({email:"",password:""})
   const [placeEmail,setplaceEmail] = useState("E-mail")
   const [placePassword,setPlacePassword] = useState("Password")
   const [loginError,setLoginError] = useState(false)
 
-  const handleEmail = (e)=>{
-      setEmail(e.target.value)
-  }
-  const handlePassword = (e)=>{
-      setPassword(e.target.value)
-  }
   const onClickBack = ()=>{
     goBack(navigate)
   }
   const onLogin = ()=>{
+
     const body ={
-      email,
-      password
+      email:form.email,
+      password:form.password
     }
   
     axios.post(urlLogin,body)
     .then((res)=>{
       localStorage.setItem("token",res.data.token);
-      setPassword('')
-      setEmail('')
+      cleanInputs()
       goAdmTravels(navigate)
     })
     .catch((err)=>{
       console.log(err.response.data)
       setplaceEmail("check your credentials");
       setPlacePassword("check your credentials");
-      setPassword('');
-      setEmail('');
+      cleanInputs()
       setLoginError(true);
     })
     
@@ -52,14 +45,14 @@ const Login=()=>{
       <h1>Admin Login</h1>
       <LoginArea 
         //email props
-        handleEmail={handleEmail}
-        valueEmail={email}
+        handleEmail={onChange}
+        valueEmail={form.email}
         placeholderEmail={placeEmail}
         //comum prop
         error={loginError} 
         //password props
-        handlePassword={handlePassword}
-        valuePassword={password}
+        handlePassword={onChange}
+        valuePassword={form.password}
         placeholderPassword={placePassword}
         //buttons props
         onClickLogin={onLogin}
