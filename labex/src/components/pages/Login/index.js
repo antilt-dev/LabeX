@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LoginArea from "../../_molecules/LoginArea";
 import {Container} from './styles';
-import { goAdmTravels, goBack } from "../../routes/Coordinator";
+import { goAdmTravels, goHome } from "../../routes/Coordinator";
 import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import { urlLogin } from "../../constants/urlsAPI";
@@ -16,10 +16,10 @@ const Login=()=>{
   const [loginError,setLoginError] = useState(false)
 
   const onClickBack = ()=>{
-    goBack(navigate)
+    goHome(navigate)
   }
-  const onLogin = ()=>{
-
+  const onLogin = (event)=>{
+    event.preventDefault()
     const body ={
       email:form.email,
       password:form.password

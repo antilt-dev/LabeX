@@ -24,7 +24,7 @@ const Router=()=>{
             <Route path="/travels" element ={<Travels/>}/>
             <Route path="/admin/travels" element ={<TravelsAdm/>}/>
             <Route path="/admin/travel-details" element ={<TravelDetails/>}/>
-            <Route path="/apply-to-travel" element ={<ApplyTravelPage/>}/>
+            <Route path="/reserve" element ={<ApplyTravelPage/>}/>
             <Route path="*" element={<ErrorPage/>} />
         </Routes>
     </BrowserRouter>

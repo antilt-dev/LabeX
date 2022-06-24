@@ -19,7 +19,7 @@ const initialValue = {
     profession:"",
     country:"",
 }
-const {form,onChange,clearInputs} = useForm(initialValue)
+const {form,onChange} = useForm(initialValue)
 
   return (
    <Container>
@@ -27,7 +27,6 @@ const {form,onChange,clearInputs} = useForm(initialValue)
         <InputLabel>Travel</InputLabel>
         <Select required
         name="travel"  
-        defaultValue={form.travel} 
         value={form.travel}
         onChange={onChange}
         >
@@ -39,8 +38,7 @@ const {form,onChange,clearInputs} = useForm(initialValue)
     <FormControl fullWidth  variant="filled">
         <InputLabel>Name</InputLabel>
         <FilledInput required
-        name="name"
-        defaultValue={form.name} 
+        name="name" 
         value={form.name}
         onChange={onChange}
         />
@@ -50,7 +48,6 @@ const {form,onChange,clearInputs} = useForm(initialValue)
         <InputLabel>Age</InputLabel>
         <FilledInput required
         name="age"
-        defaultValue={form.age} 
         value={form.age}
         onChange={onChange}
         />
@@ -60,7 +57,6 @@ const {form,onChange,clearInputs} = useForm(initialValue)
         <InputLabel>Message</InputLabel>
         <FilledInput required
         name="message"
-        defaultValue={form.message} 
         value={form.message}
         onChange={onChange}
         />
@@ -70,7 +66,6 @@ const {form,onChange,clearInputs} = useForm(initialValue)
         <InputLabel>Profession</InputLabel>
         <FilledInput required
         name="profession"
-        defaultValue={form.profession} 
         value={form.profession}
         onChange={onChange}
         />
@@ -81,7 +76,6 @@ const {form,onChange,clearInputs} = useForm(initialValue)
         <Select required
         label="Country"
         name="country"
-        defaultValue={form.country} 
         value={form.country}
         onChange={onChange}
         >{countriesRender}
